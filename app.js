@@ -8,6 +8,7 @@ var fs = require('fs');
 var mysql = require('mysql');
 var serverConfig = require('./config/config');
 var login = require('./login');
+var auth = require('./auth');
 
 var app = express();
 var router = express.Router();
@@ -23,9 +24,8 @@ app.use(bodyParser.urlencoded({extended : false}));
 app.use(bodyParser.json());
 
 router.route('/').get(function(req, res){
-    console.log("hiohihihi");
-    var mainPage = fs.readFileSync('임의의파일', 'utf8');
-    res.write(mainPage);
+    //var mainPage = fs.readFileSync('임의의파일', 'utf8');
+    res.write('hihi');
     res.end();
 });
 
@@ -42,5 +42,9 @@ http.createServer(app).listen(app.get('port'), app.get('host'), function(){
     console.log('DB connected');
     console.log('Login Router 설정');
     login(router, serverConfig.connection, session);
+    console.log('Kakao Login 설정');
+    auth(router, session);
     console.log('Board Router 설정');
+    console.log('Router 등록');
+    app.use('/', router);
 });
