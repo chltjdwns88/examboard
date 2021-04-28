@@ -1,4 +1,4 @@
-module.exports = function(router, connection, session){
+module.exports = function(router, connection){
     router.route('/examboard/:exam/:page').all(function(req, res){
         var examId = req.params.exam;
         var page = req.params.page;
