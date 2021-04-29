@@ -1,5 +1,5 @@
 module.exports = function(router, connection, session){
-    router.route('/login').post(function(req, res){
+    router.route('/login/page').post(function(req, res){
         console.log('login 시도');
         var userId = req.body.id || req.query.id;
         var userPw = req.body.password || req.query.password;

@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var fs = require('fs');
 var mysql = require('mysql');
 var serverConfig = require('./config/config');
+var signup = require('./signup');
 var login = require('./login');
 var auth = require('./auth');
 
@@ -40,6 +41,8 @@ http.createServer(app).listen(app.get('port'), app.get('host'), function(){
     });
     serverConfig.connection.connect();
     console.log('DB connected');
+    console.log('Signup Router 설정');
+    signup(router, serverConfig.connection, session);
     console.log('Login Router 설정');
     login(router, serverConfig.connection, session);
     console.log('Kakao Login 설정');
