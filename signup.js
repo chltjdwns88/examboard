@@ -84,11 +84,11 @@ module.exports = function(router, connection, session){
                 res.send({'error_message' : 'DB ERROR OCCURED!'});
             }
             else if(results >= 1){
-                res.send({'error_message' : '이미 존재하는 id 입니다.'});
+                res.send({'error_message' : '이미 존재하는 아이디 입니다.'});
             }
             else{
                 session.userId = userId;
-                res.send({'success_message' : 'id 사용이 가능합니다.'});
+                res.send({'success_message' : '아이디 사용이 가능합니다.'});
             }
         });
     });
