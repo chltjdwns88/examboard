@@ -8,14 +8,13 @@ module.exports = function(router, connection, session){
             if(err){
                 console.log('DB ERROR OCCUR!');
                 res.send({'error_message' : 'DB ERROR OCCUR!'});
-                res.redirect('/');
                 return;
             }
             if(results.userPassword == userPw){
                 console.log('Login Successed!');
                 session.islogined = true;
                 session.nickName = results.nickName;
-                res.redirect('/');
+                res.send({'success_message' : results.nickName});
             }
         })
     })

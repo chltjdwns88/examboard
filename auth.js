@@ -15,6 +15,6 @@ module.exports = function(router, session){
         failureRedirect : '/login/kakao',
         successRedirect : '/'
     }), (res, req) => {
-        res.redirect('/');
+        res.send({"success_message" : 200});
     });
 }
