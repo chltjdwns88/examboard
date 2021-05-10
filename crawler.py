@@ -22,9 +22,6 @@ uriXpaths = {
     'https://www.jpt.co.kr/' : {
         'xpaths' : ["//span[@class='date']/em[@class='roboto']", "//span[@class='date']/span[@class='time']/em[@class='color_01']", "//ul[@class='schedule_banner_slide_s']/li/a/span[@class='info']"],
         'limit' : 3
-    },
-    'https://www.gosi.kr/' : {
-        'xpaths' : [""]
     }
 }
 
@@ -35,7 +32,7 @@ def find_language_uri():
     global uriXpaths
     global driver
 
-    for uri in searchUri:
+    for uri in search_language_Uri:
         driver.get(uri)
         #xpath는 경로를 지정하여 html을 크롤링하는 작업을 의미한다.
         xpaths = uriXpaths[uri]['xpaths']
@@ -68,5 +65,5 @@ def find_gosi_uri():
             for idx_, date in enumerate(dates):
                 print(gosi_index[idx_] + " " + date.text)
 
-#find_language_uri()
+find_language_uri()
 find_gosi_uri()
